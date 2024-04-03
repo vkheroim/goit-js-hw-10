@@ -25,51 +25,56 @@
 }
 
 /* ---------------------------------------- */
+/* Стилі для поля вводу */
 .input-field {
-  width: 250px;
-  border-radius: 4px;
+  width: 280px;
+  border-radius: 10px;
   background: #fff;
   color: #2e2f42;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
-  letter-spacing: 0.04em;
-  padding: 8px 0 8px 16px;
+  padding: 10px 0 10px 20px;
 }
 
+/* Стилі для кнопки запуску */
 .start-btn {
   font-family: Montserrat;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
   background: #cfcfcf;
-  border-color: inherit;
-
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
-  letter-spacing: 0.04em;
+  border-color: inherit;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+/* Контейнер для таймера */
 .timer-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 28px;
+  column-gap: 20px;
 }
 
+/* Контейнер для поля */
 .field {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Значення таймера */
 .value {
   color: #2e2f42;
-  font-size: 40px;
+  font-size: 50px;
   line-height: 1.2;
   letter-spacing: 0.04em;
 }
 
-.input-button-container{
+/* Контейнер для введення і кнопки */
+.input-button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
