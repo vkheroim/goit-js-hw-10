@@ -1,9 +1,8 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// Прослуховування події завантаження DOM
 document.addEventListener('DOMContentLoaded', function () {
-  // Отримання посилання на форму
+  // Вибір форми
   const form = document.querySelector('form');
 
   if (form) {
@@ -11,34 +10,32 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      // Отримання значення затримки та стану форми
       const delay = parseInt(this.elements.delay.value, 10);
       const state = form.querySelector('input[name="state"]:checked').value;
 
-      // Створення об'єкту Promise
       const promise = new Promise((resolve, reject) => {
-        // Затримка виконання функції
+        // Затримка виконання
         setTimeout(() => {
           state === 'fulfilled' ? resolve(delay) : reject(delay);
         }, delay);
       });
 
       promise.then(
-        // Обробка успішного виконання Promise
         delay =>
+          // Виклик функції показу Snackbar
           showSnackbar(
-            'Success!',
+            'Success',
             `✅ Fulfilled promise in ${delay}ms`,
             '#59A10D'
           ),
-        // Обробка невдалого виконання Promise
         delay =>
-          showSnackbar('Error!', `❌ Rejected promise in ${delay}ms`, '#EF4040')
+          // Виклик функції показу Snackbar
+          showSnackbar('Error', `❌ Rejected promise in ${delay}ms`, '#EF4040')
       );
     });
   }
 
-  // Функція для відображення сповіщення
+  // Функція для показу Snackbar
   function showSnackbar(title, message, backgroundColor) {
     const toastOptions = {
       title: title,
@@ -46,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
       backgroundColor: backgroundColor,
     };
 
-    // Виведення сповіщення
+    // Визивання функції залежно від заголовку
     if (title === 'Success') {
       iziToast.success(toastOptions);
     } else if (title === 'Error') {
