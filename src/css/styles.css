@@ -23,3 +23,54 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+/* ---------------------------------------- */
+.input-field {
+  width: 250px;
+  border-radius: 4px;
+  background: #fff;
+  color: #2e2f42;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding: 8px 0 8px 16px;
+}
+
+.start-btn {
+  font-family: Montserrat;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #cfcfcf;
+  border-color: inherit;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  color: #2e2f42;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.input-button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
