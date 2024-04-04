@@ -32,14 +32,23 @@ function enableStartButton() {
 // Прослуховування події click на кнопці start
 startButton.addEventListener('click', startTimer);
 
-// ---------------------------------------------------------
-
 // Ініціалізація Flatpickr з календарем та опціями
-let userSelectedDate = flatpickr(calendarInput, options);
+let selectedDate; // Змінна для зберігання вибраної дати
+
+flatpickr(calendarInput, {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    selectedDate = selectedDates[0]; // Збереження вибраної дати
+    handleDateSelect(selectedDate); // Виклик функції обробки вибору дати
+  },
+});
 
 // Функція для обробки вибору дати
-function handleDateSelect(selectedDates) {
-  if (selectedDates[0] <= new Date()) {
+function handleDateSelect(selectedDate) {
+  if (selectedDate <= new Date()) {
     disableStartButton();
     displayErrorMessage('Error!');
   } else {
@@ -50,16 +59,13 @@ function handleDateSelect(selectedDates) {
 // ID інтервалу для таймера
 let intervalId;
 
-// Логування вибраної дати в мілісекундах
-console.log(userSelectedDate.selectedDates[0].getTime());
-
 // --------------------------------------------------------
 
 // Функція для запуску таймера
 function startTimer() {
   clearInterval(intervalId);
   let currentDate = new Date();
-  let ms = userSelectedDate.selectedDates[0] - currentDate;
+  let ms = selectedDate - currentDate;
   updateTimerDisplay(ms);
 
   intervalId = setInterval(() => {
