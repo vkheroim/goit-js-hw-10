@@ -20,18 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }, delay);
       });
 
-      promise.then(
-        delay =>
+      promise
+        .then(delay => {
           // Виклик функції показу Snackbar
           showSnackbar(
             'Success',
             `✅ Fulfilled promise in ${delay}ms`,
             '#59A10D'
-          ),
-        delay =>
+          );
+        })
+        .catch(delay => {
           // Виклик функції показу Snackbar
-          showSnackbar('Error', `❌ Rejected promise in ${delay}ms`, '#EF4040')
-      );
+          showSnackbar('Error', `❌ Rejected promise in ${delay}ms`, '#EF4040');
+        });
     });
   }
 
